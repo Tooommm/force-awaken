@@ -7,18 +7,39 @@ html {
 
 .header {
   display: block;
-  margin: -10px 0px 0px -10px;
-  background-image: url("./assets/header-bg.png");
-  width: 105%;
-  height: 500px;
+
 }
 
-.logo {
+.card1,
+.card2 {
+  position: absolute;
+  border-radius: 5px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+.card1 {
+  background-image: url("./assets/header-bg.png");
+/*  margin: -10px 0px 0px -10px;
+  width: 105%;
+  height: 500px;*/
+  min-width: 60ch;
+  min-height: 60ch;
+  width: 45vw;
+  height: 45vw;
+  max-width: 100ch;
+  max-height: 100ch;
+}
+
+.card2 {
   background: url("./assets/logo.png");
-  margin: 0 auto;
+/*  margin: 0 auto;
   width: 75vh;
   height: 35vh;
-  margin-top: 10vh; /* poussé de la moitié de hauteur de viewport */
+  margin-top: 10vh;*/
+  width: 25ch;
+  height: 25ch;
 }
 
 .menu {

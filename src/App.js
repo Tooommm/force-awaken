@@ -1,21 +1,29 @@
 import './App.css';
-import ParallaxMousemove from 'react-parallax-mousemove';
+import { useSpring, animated } from 'react-spring';
 import ad from './assets/ad.jpg';
 
+const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
+const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
+const trans2 = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 - 230}px,0)`;
+const trans3 = (x, y) => `translate3d(${x / 6 - 250}px,${y / 6 - 200}px,0)`;
+const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`;
+
 function App() {
+  const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
   return (
     <div className="App">
       <div className="container">
-        <div className="header">
-              <div className="menu">
-                <div className="item"> LE COTÉ LUMINEUX </div>
-                <div className="item"> LE COTÉ OBSCUR </div>
-                <div className="item"> L’EMPIRE </div>
-                <div className="item"> LES DROÏDES </div>
-                <div className="item"> LES EWOKS </div>
-                <div className="item"> JABBA LE HUTT </div>
-              </div>
-              <div className="logo"></div>
+        <div className="header" onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+          <div className="menu">
+            <div className="item"> LE COTÉ LUMINEUX </div>
+            <div className="item"> LE COTÉ OBSCUR </div>
+            <div className="item"> L’EMPIRE </div>
+            <div className="item"> LES DROÏDES </div>
+            <div className="item"> LES EWOKS </div>
+            <div className="item"> JABBA LE HUTT </div>
+          </div>
+          <animated.div className="card1" style={{ transform: props.xy.interpolate(trans1) }} />
+          <animated.div className="card2" style={{ transform: props.xy.interpolate(trans2) }} />
         </div>
 
         <div className="content">
