@@ -16,39 +16,18 @@ body,
   display: block;
   position: relative;
   text-align: -webkit-center;
+  background-image: url("./assets/header-bg.png");
 }
 
-.card3,
-.card4 {
-  background-size: cover;
+.logo {
+  background: url("./assets/logo.png");
   background-position: center center;
   background-repeat: no-repeat;
   will-change: transform;
-}
-
-.card3 {
-  background-image: url("./assets/header-bg.png");
-  position: absolute;
-/*  margin: -10px 0px 0px -10px;
-  width: 105%;
-  height: 500px;*/
-  width: 100vw;
-  height: 30vw;
-  background-size: cover;
-}
-
-.card4 {
-  background: url("./assets/logo.png");
-/*  margin: 0 auto;
-  width: 75vh;
-  height: 35vh;
-  margin-top: 10vh;*/
+  margin-top: 3vw;
   width: 60vw;
-  height: 25vw;
-
+  height: 30vw;
 }
-
-
 
 .menu {
   display: flex;

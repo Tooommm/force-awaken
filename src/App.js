@@ -3,10 +3,7 @@ import { useSpring, animated } from 'react-spring';
 import ad from './assets/ad.jpg';
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
-const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
-const trans2 = (x, y) => `translate3d(${x / 8 + 1.5}px,${y / 8 - 3.5}px,0)`;
-const trans3 = (x, y) => `translate3d(${x / 6 - 250}px,${y / 6 - 200}px,0)`;
-const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`;
+const trans1 = (x, y) => `translate3d(${x / 10 + 0.5}px,${y / 11 - 0.5}px,0)`;
 
 function App() {
   const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
@@ -22,8 +19,7 @@ function App() {
             <div className="item"> LES EWOKS </div>
             <div className="item"> JABBA LE HUTT </div>
           </div>
-          <div class="card3" />
-          <animated.div class="card4" style={{ transform: props.xy.interpolate(trans2) }} />
+          <animated.div class="logo" style={{ transform: props.xy.interpolate(trans1) }} />
         </div>
 
         <div className="content">
