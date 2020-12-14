@@ -12,6 +12,12 @@ body,
   background-color: white;
 }
 
+h1,
+h3 {
+  margin: 0;
+  font-weight: 700;
+}
+
 .header {
   display: block;
   position: relative;
@@ -34,8 +40,6 @@ body,
   justify-content: center;
   color: #FFFFFF;
   padding-top: 2vh;
-
-  font-weight: bold;
   font-size: 14px;
   line-height: 22px
 }
@@ -46,9 +50,75 @@ body,
 
 .content {
   display: flex;
-  justify-content: center;
+  padding: 10vw;
 }
 
-.ad .text {
-  margin-left: 2vh;
+.text {
+  margin-right: 10vw;
 }
+.ad {
+  position: sticky;
+  top: 10px;
+  align-self: flex-start;
+}
+
+.kiloren,
+.img-footer {
+  width: -webkit-fill-available;
+}
+
+.article {
+  padding: 10vw;
+}
+
+.article-picture {
+  float: left;
+  margin: 0 2vh 2vh 0;
+}
+
+.article h1 {
+  text-align: center;
+  margin-bottom: 2vw;
+}
+
+.article p {
+  line-height: 32px;
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-bottom {
+  background-image: url("./assets/darthvader.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #181818;
+  color: #9B9B9B;
+  margin-top: -10px;
+  text-align: center;
+  margin-bottom: 4vh;
+  height: 30vh;
+}
+
+.footer-bottom-title {
+  padding-top: 7vh;
+}
+
+.footer-bottom li {
+  list-style-type: none;
+  text-decoration: underline;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer-box {
+  margin-top: 4vh;
+}
+
+
+
