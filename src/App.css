@@ -23,6 +23,11 @@ h3 {
   position: relative;
   text-align: -webkit-center;
   background-image: url("./assets/header-bg.png");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: -8vw;
+  height: 500px;
 }
 
 .logo {
@@ -30,22 +35,8 @@ h3 {
   background-position: center center;
   background-repeat: no-repeat;
   will-change: transform;
-  margin-top: 3vw;
   width: 60vw;
-  height: 30vw;
-}
-
-.menu {
-  display: flex;
-  justify-content: center;
-  color: #FFFFFF;
-  padding-top: 2vh;
-  font-size: 14px;
-  line-height: 22px
-}
-
-.item {
-  padding-right: 5vh;
+  height: 55vw;
 }
 
 .content {
@@ -55,6 +46,7 @@ h3 {
 
 .text {
   margin-right: 10vw;
+  font-size: 1.78vw;
 }
 .ad {
   position: sticky;
@@ -67,8 +59,16 @@ h3 {
   width: -webkit-fill-available;
 }
 
+.kiloren {
+  background-image: url('./assets/kiloren.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 49vw;
+}
+
 .article {
-  padding: 10vw;
+  padding: 6vw 11vw;
 }
 
 .article-picture {
@@ -82,13 +82,22 @@ h3 {
 }
 
 .article p {
-  line-height: 32px;
+  font-size: 1.46vw;
+  line-height: 26px;
   margin: 0;
 }
 
 .flex {
   display: flex;
   justify-content: space-around;
+}
+
+.img-footer {
+  background-image: url('./assets/stormtroopers.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 24vw;
 }
 
 .footer-bottom {
@@ -121,4 +130,18 @@ h3 {
 }
 
 
+@media screen and (max-width: 960px) {
 
+  .ad {
+    display: none;
+  }
+
+  .text {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .header {
+    display: none;
+  }
+}

@@ -1,9 +1,10 @@
+import React, { useState, useEffect } from 'react';
+import Navbar from './components/Navbar';
+import HeaderMobile from './components/HeaderMobile';
 import './App.css';
 import { useSpring, animated } from 'react-spring';
 import ad from './assets/ad.jpg';
-import kiloren from './assets/kiloren.png';
 import r2c3 from './assets/r2d2_c3p0.jpg';
-import storm from './assets/stormtroopers.jpg';
 import facebook from './assets/icon_facebook.png';
 import twitter from './assets/icon_twitter.png';
 import instagram from './assets/icon_instagram.png';
@@ -13,18 +14,35 @@ const trans1 = (x, y) => `translate3d(${x / 10 + 0.5}px,${y / 11 - 0.5}px,0)`;
 
 function App() {
   const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
+  const [width, setWidth] = useState(window.innerWidth);
+  const [mobileHeader, setMobileHeader] = useState(true)
+
+  useEffect(() => {
+    window.addEventListener("resize", updateWidth, displayMobileHeader());
+    return () => window.removeEventListener("resize", updateWidth, displayMobileHeader());
+  });
+
+  const updateWidth = () => {
+    setWidth(window.innerWidth);
+
+  };
+
+  const displayMobileHeader = () => {
+    if (width < 960) {
+      setMobileHeader(true);
+    } else {
+      setMobileHeader(false);
+    }
+  };
+
   return (
-    <div className="App">
+    <div className="desktop">
       <div className="container">
-        <div className="header" onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
-          <div className="menu">
-            <div className="item"> LE COTÉ LUMINEUX </div>
-            <div className="item"> LE COTÉ OBSCUR </div>
-            <div className="item"> L’EMPIRE </div>
-            <div className="item"> LES DROÏDES </div>
-            <div className="item"> LES EWOKS </div>
-            <div className="item"> JABBA LE HUTT </div>
-          </div>
+        <Navbar className="menu" />
+        <div>
+          {mobileHeader && <HeaderMobile />}
+        </div>
+        <div className="header" onMouseMove={!mobileHeader ? ({ clientX: x, clientY: y }) => set({ xy: calc(x, y) }) : "" }>
           <animated.div class="logo" style={{ transform: props.xy.interpolate(trans1) }} />
         </div>
 
@@ -48,7 +66,7 @@ function App() {
             <img src={ad} alt="star wars"/>
           </div>
         </div>
-        <img className="kiloren" src={kiloren} alt="kiloren" />
+        <div className="kiloren" alt="kiloren" />
         <div className="article">
           <h1 className="title">A long time ago, in a galaxy far, far away…</h1>
           <img className="article-picture" src={r2c3} alt="r2d2 and C3p0" />
@@ -60,7 +78,7 @@ function App() {
           <p> - La musique, composée par John Williams, introduit des thèmes récurrents et des leitmotivs (procédé classique mais renforçant la cohérence). </p>
         </div>
         <div className="footer">
-          <img className="img-footer" src={storm} alt="stormtroopers"/>
+          <div className="img-footer" alt="stormtroopers"/>
           <div className="footer-bottom">
             <div className="footer-bottom-title">
               <p> <strong>TM Lucasfilm</strong> Ltd. All Rights Reserved.</p>
@@ -96,6 +114,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
