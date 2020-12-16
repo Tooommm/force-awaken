@@ -3,7 +3,6 @@
 html,
 body,
 #root {
-  font-family: "Open Sans", sans-serif;
   font-style: normal;
   width: 100%;
   height: 100%;
@@ -18,7 +17,7 @@ h3 {
   font-weight: 700;
 }
 
-.header {
+.banner {
   display: block;
   position: relative;
   text-align: -webkit-center;
@@ -26,8 +25,8 @@ h3 {
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
-  margin-top: -8vw;
-  height: 500px;
+  margin-top: -6vh;
+  height: 53vh;
 }
 
 .logo {
@@ -35,28 +34,24 @@ h3 {
   background-position: center center;
   background-repeat: no-repeat;
   will-change: transform;
-  width: 60vw;
-  height: 55vw;
+  width: 65vw;
+  height: 68vh;
 }
 
 .content {
   display: flex;
-  padding: 10vw;
+  padding: 7.4vh 12vw;
 }
 
 .text {
-  margin-right: 10vw;
-  font-size: 1.78vw;
+  font-size: 2.1vh;
 }
+
 .ad {
   position: sticky;
   top: 10px;
   align-self: flex-start;
-}
-
-.kiloren,
-.img-footer {
-  width: -webkit-fill-available;
+  margin-left: 9.5vw;
 }
 
 .kiloren {
@@ -68,7 +63,7 @@ h3 {
 }
 
 .article {
-  padding: 6vw 11vw;
+  padding: 6.5vw 12vw;
 }
 
 .article-picture {
@@ -82,14 +77,9 @@ h3 {
 }
 
 .article p {
-  font-size: 1.46vw;
+  font-size: 1.6vh;
   line-height: 26px;
   margin: 0;
-}
-
-.flex {
-  display: flex;
-  justify-content: space-around;
 }
 
 .img-footer {
@@ -100,48 +90,44 @@ h3 {
   height: 24vw;
 }
 
-.footer-bottom {
-  background-image: url("./assets/darthvader.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #181818;
-  color: #9B9B9B;
-  margin-top: -10px;
-  text-align: center;
-  margin-bottom: 4vh;
-  height: 30vh;
-}
-
-.footer-bottom-title {
-  padding-top: 7vh;
-}
-
-.footer-bottom li {
-  list-style-type: none;
-  text-decoration: underline;
-}
-
-.footer p {
-  margin: 0;
-}
-
-.footer-box {
-  margin-top: 4vh;
-}
-
-
 @media screen and (max-width: 960px) {
 
   .ad {
     display: none;
   }
 
-  .text {
-    text-align: center;
-    margin: 0 auto;
+  .content {
+    padding: 4.5vh 9vw;
   }
 
-  .header {
+  .kiloren {
+    background-image: url('./assets/kiloren-2x.jpg');
+    background-size: 124vh;
+    height: 61vh;
+  }
+
+  .text {
+    text-align: center;
+    font-size: 2.6vh;
+  }
+
+  .banner {
     display: none;
+  }
+
+  .article h1 {
+    line-height: 4vh;
+    margin-bottom: 5vh;
+  }
+
+  .article p {
+    font-size: 2vh;
+    line-height: 21px;
+  }
+
+  .img-footer {
+    background-image: url('./assets/stormtroopers-2x.jpg');
+    background-size: 156vh;
+    height: 38vh;
   }
 }

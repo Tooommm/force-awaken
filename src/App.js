@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './components/Navbar';
-import HeaderMobile from './components/HeaderMobile';
 import './App.css';
+import Navbar from './components/Navbar';
+import BannerMobile from './components/BannerMobile';
+import Footer from './components/Footer';
 import { useSpring, animated } from 'react-spring';
 import ad from './assets/ad.jpg';
 import r2c3 from './assets/r2d2_c3p0.jpg';
-import facebook from './assets/icon_facebook.png';
-import twitter from './assets/icon_twitter.png';
-import instagram from './assets/icon_instagram.png';
 
-const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
+const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 const trans1 = (x, y) => `translate3d(${x / 10 + 0.5}px,${y / 11 - 0.5}px,0)`;
 
 function App() {
-  const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
+  const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }));
   const [width, setWidth] = useState(window.innerWidth);
-  const [mobileHeader, setMobileHeader] = useState(true)
+  const [mobileHeader, setMobileHeader] = useState(true);
 
   useEffect(() => {
     window.addEventListener("resize", updateWidth, displayMobileHeader());
@@ -24,15 +22,10 @@ function App() {
 
   const updateWidth = () => {
     setWidth(window.innerWidth);
-
   };
 
   const displayMobileHeader = () => {
-    if (width < 960) {
-      setMobileHeader(true);
-    } else {
-      setMobileHeader(false);
-    }
+    width < 960 ? setMobileHeader(true) : setMobileHeader(false);
   };
 
   return (
@@ -40,21 +33,14 @@ function App() {
       <div className="container">
         <Navbar className="menu" />
         <div>
-          {mobileHeader && <HeaderMobile />}
+          {mobileHeader && <BannerMobile />}
         </div>
-        <div className="header" onMouseMove={!mobileHeader ? ({ clientX: x, clientY: y }) => set({ xy: calc(x, y) }) : "" }>
+        <div className="banner" onMouseMove={!mobileHeader ? ({ clientX: x, clientY: y }) => set({ xy: calc(x, y) }) : ""}>
           <animated.div class="logo" style={{ transform: props.xy.interpolate(trans1) }} />
         </div>
-
         <div className="content">
           <div className="text">
             <h3>Star Wars, The Force Awakens</h3>
-            <p> Plus de 30 ans après la bataille d'Endor, la galaxie n'en a pas fini avec la tyrannie et l’oppression. Les membres de l'Alliance rebelle, devenus la « Résistance », combattent les vestiges de l'Empire réunis sous la bannière du « Premier Ordre ». </p>
-            <p> Un mystérieux guerrier, Kylo Ren, semble vouer un culte à Dark Vador et pourchasse les ennemis du Premier Ordre à travers la galaxie. Au même moment, une jeune femme nommée Rey, pilleuse d'épaves sur la planète désertique Jakku, va faire la rencontre de Finn, un Stormtrooper en fuite, une rencontre qui bouleversera sa vie. </p>
-            <p> Plus de 30 ans après la bataille d'Endor, la galaxie n'en a pas fini avec la tyrannie et l’oppression. Les membres de l'Alliance rebelle, devenus la « Résistance », combattent les vestiges de l'Empire réunis sous la bannière du « Premier Ordre ». </p>
-            <p> Un mystérieux guerrier, Kylo Ren, semble vouer un culte à Dark Vador et pourchasse les ennemis du Premier Ordre à travers la galaxie. Au même moment, une jeune femme nommée Rey, pilleuse d'épaves sur la planète désertique Jakku, va faire la rencontre de Finn, un Stormtrooper en fuite, une rencontre qui bouleversera sa vie. </p>
-            <p> Plus de 30 ans après la bataille d'Endor, la galaxie n'en a pas fini avec la tyrannie et l’oppression. Les membres de l'Alliance rebelle, devenus la « Résistance », combattent les vestiges de l'Empire réunis sous la bannière du « Premier Ordre ». </p>
-            <p> Un mystérieux guerrier, Kylo Ren, semble vouer un culte à Dark Vador et pourchasse les ennemis du Premier Ordre à travers la galaxie. Au même moment, une jeune femme nommée Rey, pilleuse d'épaves sur la planète désertique Jakku, va faire la rencontre de Finn, un Stormtrooper en fuite, une rencontre qui bouleversera sa vie. </p>
             <p> Plus de 30 ans après la bataille d'Endor, la galaxie n'en a pas fini avec la tyrannie et l’oppression. Les membres de l'Alliance rebelle, devenus la « Résistance », combattent les vestiges de l'Empire réunis sous la bannière du « Premier Ordre ». </p>
             <p> Un mystérieux guerrier, Kylo Ren, semble vouer un culte à Dark Vador et pourchasse les ennemis du Premier Ordre à travers la galaxie. Au même moment, une jeune femme nommée Rey, pilleuse d'épaves sur la planète désertique Jakku, va faire la rencontre de Finn, un Stormtrooper en fuite, une rencontre qui bouleversera sa vie. </p>
             <p> Plus de 30 ans après la bataille d'Endor, la galaxie n'en a pas fini avec la tyrannie et l’oppression. Les membres de l'Alliance rebelle, devenus la « Résistance », combattent les vestiges de l'Empire réunis sous la bannière du « Premier Ordre ». </p>
@@ -77,41 +63,9 @@ function App() {
           <p> - Le film a développé un univers cohérent, avec, comme préoccupation constante, autant la création d'une ambiance que l'action proprement dite. </p>
           <p> - La musique, composée par John Williams, introduit des thèmes récurrents et des leitmotivs (procédé classique mais renforçant la cohérence). </p>
         </div>
-        <div className="footer">
-          <div className="img-footer" alt="stormtroopers"/>
-          <div className="footer-bottom">
-            <div className="footer-bottom-title">
-              <p> <strong>TM Lucasfilm</strong> Ltd. All Rights Reserved.</p>
-            </div>
-            <div className="footer-box flex">
-              <div className="list">
-                <ul>
-                  <li>Terms of Use</li>
-                  <li>Legal Notice</li>
-                  <li>Privacy Policy</li>
-                </ul>
-              </div>
-              <div className="list">
-                <ul>
-                  <li>Your California Privacy Rights</li>
-                  <li>Star Wars at Disney Store</li>
-                  <li>Privacy Policy</li>
-                </ul>
-              </div>
-              <div className="social-media">
-                <p>FOLLOW STAR WARS</p>
-                <div className="flex">
-                  <img src={facebook} alt="facebook"></img>
-                  <img src={twitter} alt="twitter"></img>
-                  <img src={instagram} alt="instagram"></img>
-                </div>
-              </div>
-            </div>
-
-          </div>
+        <div className="img-footer" alt="stormtroopers"/>
         </div>
-
-      </div>
+        <Footer />
     </div>
   );
 };

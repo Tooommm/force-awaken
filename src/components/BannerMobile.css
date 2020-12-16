@@ -1,0 +1,7 @@
+.banner-mobile {
+  background-image: url('../assets/header.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 60vh;
+}
